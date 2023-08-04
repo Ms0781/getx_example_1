@@ -9,6 +9,7 @@ class MyShoppingPage extends StatelessWidget{
   final cardController = Get.put(CardController());
   @override
   Widget build(BuildContext context) {
+    print("Build Method is Called :");
     // TODO: implement build
     return Scaffold(
       body: Column(
@@ -41,6 +42,14 @@ class MyShoppingPage extends StatelessWidget{
           ),
           const SizedBox(height: 100,)
         ],
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: null,
+        label: GetX<CardController>(
+          builder: (controller){
+            return Text("Total Items in cart : ${controller.totalItems}");
+          },
+        ),
       ),
     );
   }
